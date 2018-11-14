@@ -1,2 +1,5 @@
 # Ipython checkpoints
 .ipynb_checkpoints
+
+# Data
+.csv
