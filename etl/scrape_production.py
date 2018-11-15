@@ -29,8 +29,9 @@ def check_folder(directory):
 def save_zip(url, file_name):
     with urlopen(url) as response, open(file_name, 'wb') as out_file:
         shutil.copyfileobj(response, out_file)
-        with zipfile.ZipFile(file_name) as zf:
-            zf.extractall(os.path.dirname(file_name))
+    #os.system("unzip {}".format(file_name))
+    with zipfile.ZipFile(file_name, mode='r') as zf:
+        zf.extractall(os.path.dirname(file_name))
 
 def clean_extracted_zip(folder, year):
     for filename in os.listdir(folder):
@@ -62,6 +63,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
